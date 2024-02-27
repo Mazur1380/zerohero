@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 
 	//for x := 5; x < 15; x++ {
@@ -10,9 +12,9 @@ func main() {
 	//}
 
 	x := []string{"a", "b", "c", "d", "e"}
-	//for i := 0; i < len(x); i++ {
-	//	fmt.Println(x[i])
-	//	}
+	for i := 0; i < len(x); i++ {
+		fmt.Println(x[i])
+	}
 
 	//	for i := range x {
 	//	fmt.Println(x[i])
