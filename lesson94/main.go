@@ -1,15 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"slices"
+)
 
 func main() {
 
-	d := []int{1, 3, 45, 67, 89, 98, 100}
+	d := []int{1, 3, 1000, 45, 67, 89, 98, 100}
 	v := binSearch(d, 68)
 	fmt.Println(v)
 
 }
 func binSearch(x []int, y int) bool {
+	newx := make([]int, len(x))
+	copy(newx, x)
+	slices.Sort(newx)
+	x = newx
+
 	if len(x) == 0 {
 		return false
 	}
@@ -28,4 +36,14 @@ func binSearch(x []int, y int) bool {
 		}
 	}
 	return false
+}
+
+func linSearch(x []int, y int) bool {
+	for _, i := range x {
+		if y == i {
+			return true
+		}
+	}
+	return false
+
 }
