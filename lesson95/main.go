@@ -5,13 +5,12 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/redis/go-redis/v9"
 )
-
-const token = "6349483943:AAGEN47LBBQbnsdjeuelvsC7j5RpZR025Vc"
 
 var keyboard = tgbotapi.NewReplyKeyboard(
 	tgbotapi.NewKeyboardButtonRow(
@@ -21,8 +20,11 @@ var keyboard = tgbotapi.NewReplyKeyboard(
 
 func main() {
 
+	token := os.Getenv("TOKEN")
+	redisURL := os.Getenv("REDIS_URL")
+
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     "red:6379",
+		Addr:     redisURL,
 		Password: "",
 		DB:       0,
 	})
@@ -38,19 +40,23 @@ func main() {
 
 	updates := bot.GetUpdatesChan(updateConfig)
 
+	log.Println("Start bot")
+
 	for update := range updates {
 		if update.Message == nil {
 			continue
 		}
+
+		log.Println("Received message")
 
 		switch update.Message.Text {
 		case "/start":
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Выберете город")
 			msg.ReplyMarkup = keyboard
 			if _, err := bot.Send(msg); err != nil {
-
 				log.Fatal(err)
 			}
+			log.Println("Ansvered to start")
 		case "Санкт-Петербург":
 			text := ""
 			day := time.Now().Day()
@@ -77,9 +83,9 @@ func main() {
 
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, text)
 			if _, err := bot.Send(msg); err != nil {
-
 				log.Fatal(err)
 			}
+			log.Println("Ansvered to SPB")
 
 		}
 

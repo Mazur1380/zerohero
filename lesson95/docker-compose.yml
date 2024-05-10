@@ -1,0 +1,19 @@
+version: '3.8'
+
+
+services:
+  redis:
+    image: redis:latest
+
+
+  myapp:
+    build:
+      context: ..
+      dockerfile: lesson95/Dockerfile
+    environment:
+      TOKEN: 6349483943:AAGEN47LBBQbnsdjeuelvsC7j5RpZR025Vc
+      REDIS_URL: redis:6379
+    depends_on:
+      - redis
+
+      

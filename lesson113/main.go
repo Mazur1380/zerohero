@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-//go:embed *.txt
+//go:embed*.txt
 var files embed.FS
 
 func main() {
