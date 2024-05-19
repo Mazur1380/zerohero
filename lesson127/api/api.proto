@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package api.V1;
+
+option go_package = "github.com/andreipimenov/zerohero/abc/api/;api";
+
+service TimeService {
+    rpc GetNow(GetNowRequest) returns (GetNowResponse);
+    rpc GetTomorrow(GetTomorrowRequest) returns (GetTomorrowResponse);
+}
+
+message GetNowRequest{
+    string tz=1;
+}
+
+message GetNowResponse{
+    string now = 1;
+    string tz =2;
+ }
+
+ message GetTomorrowRequest{
+
+ }
+
+ message GetTomorrowResponse{
+    string tomorrow = 1;
+ }
+ 
