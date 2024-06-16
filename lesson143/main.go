@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/andreipimenov/zerohero/lesson144/list"
+	"github.com/andreipimenov/zerohero/lesson143/list"
 )
 
 func main() {
