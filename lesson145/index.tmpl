@@ -1,0 +1,15 @@
+{{define "index" }}
+
+<h1>Hello, {{ .Name }}</h1>
+<p>You are being grented with the following benefits</p>
+<ul>
+
+{{range .Benefits}}
+<li>{{ . }}</li>
+{{ end }}
+</ul>
+<p>
+    <a href="/about">About us</a>
+</p>
+
+{{ end }}
