@@ -71,7 +71,25 @@ SELECT name,price,shop_name FROM cats JOIN shops ON shop_id=id ORDER BY price DE
 
 SELECT c.name FROM cats c;
 
+SELECT shop_name,COUNT(*) FROM cats JOIN shops ON shop_id=id GROUP BY shop_name HAVING COUNT(*)>1;
 
+SELECT shop_name,COUNT(*) AS count FROM cats JOIN shops ON shop_id=id GROUP BY shop_name;
+
+WITH cats_counter AS (
+    SELECT shop_name,COUNT(*) AS count FROM cats JOIN shops ON shop_id=id GROUP BY shop_name
+)
+SELECT * FROM cats_counter WHERE count>1;
+
+SELECT name FROM cats 
+UNION
+SELECT shop_name FROM shops;
+
+CREATE VIEW cats_count AS 
+SELECT shop_name,COUNT(*) AS count FROM cats JOIN shops ON shop_id=id GROUP BY shop_name;
+
+SELECT id FROM shops WHERE shop_name='Four_Paws';
+
+INSERT INTO cats(name,shop_id) VALUES ('Pushistik',1);
 
 
 
