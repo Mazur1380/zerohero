@@ -3,21 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя первая страница на Nginx</title>
+    <title>Кальян — мир наслаждения</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            padding: 50px;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        h1 {
-            color: #333;
+        header {
+            background: #ff0000;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        .footer {
+            background: #35424a;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+        .highlight {
+            color: #ff6347; /* Tomato color */
+            font-weight: bold;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .images img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Добро пожаловать на мою страницу!</h1>
-    <p>Это страница, обслуживаемая Nginx через Docker.</p>
+
+<header>
+    <h1>Добро пожаловать в мир кальяна!</h1>
+    <nav>
+        <a href="#about">О кальяне</a>
+        <a href="#flavors">Вкусы</a>
+        <a href="#tips">Советы</a>
+    </nav>
+</header>
+
+<section id="about">
+    <h2>Что такое кальян?</h2>
+    <p>Кальян — это древний способ курения, который берет своё начало в Индии и Ближнем Востоке. Сегодня он стал популярным во всем мире и используется для наслаждения различными вкусами.</p>
+</section>
+
+<section id="flavors">
+    <h2>Популярные вкусы кальяна</h2>
+    <div class="images">
+        <img src="https://via.placeholder.com/200?text=Мята" alt="Мята">
+        <img src="https://via.placeholder.com/200?text=Фрукты" alt="Фрукты">
+        <img src="https://via.placeholder.com/200?text=Кола" alt="Кола">
+    </div>
+</section>
+
+<section id="tips">
+    <h2>Советы для новичков</h2>
+    <ul>
+        <li>Выбирайте качественные табаки.</li>
+        <li>Экспериментируйте с вкусами.</li>
+        <li>Обратите внимание на приготовление воды в колбе.</li>
+    </ul>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2023 Кальян — мир наслаждения. Все права защищены.</p>
+</footer>
+
 </body>
 </html>
