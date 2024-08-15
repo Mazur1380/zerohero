@@ -10,6 +10,7 @@ require (
 	github.com/nats-io/nats.go v1.36.0
 	github.com/redis/go-redis/v9 v9.5.1
 	go.mongodb.org/mongo-driver v1.15.0
+	go.uber.org/mock v0.4.0
 	golang.org/x/net v0.25.0
 	google.golang.org/grpc v1.64.0
 	google.golang.org/protobuf v1.34.1
