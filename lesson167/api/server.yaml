@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: Магазин кальянов OpenApi спецификация 
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080
+    description: Dev server 
+paths:
+  /api/v1/hookah:
+    get:
+      summary: Метод получения списка кальянов 
+      tags:
+        - Hookah
+      responses:
+        '200':
+          description: Успешный ответ со списком кальянов 
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hookahs"
+    post: 
+      summary: Метод создания кальяна 
+      tags:
+        - Hookah
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Hookah"
+      responses:
+        '200':
+          description: Успешный ответ
+            
+            
+components:
+  schemas:
+    Hookah:
+      type: object
+      required:
+        - name
+        - price
+      properties:
+        name: 
+          type: string
+          example: Alpha-hookah
+        price:
+          type: integer
+          example: 10900
+    Hookahs:
+      type: array
+      items:
+        $ref: "#/components/schemas/Hookah"
+    
+            
+      

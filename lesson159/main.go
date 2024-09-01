@@ -26,6 +26,7 @@ func checkBalance(c calc, nums [2]int) error {
 	return nil
 }
 
+//go:generate mockgen -source=main.go -package=main -destination=main_mock_test.go
 type calc interface {
 	Sub(a int, b int) int
 }
