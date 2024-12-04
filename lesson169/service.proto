@@ -1,0 +1,31 @@
+syntax = "proto.3";
+
+// Определение сервиса аутентификации
+service AuthService{
+  rpc Login(LoginRequest)returns (LoginResponse);
+}
+
+
+//Форма заполнения для регистрации
+message UserRegistrationRequest{
+  string email=1;
+  string password=2;
+}
+
+//Определяем какое сообщение отдать при регистрации
+message UserRegistrationResponse{}
+
+
+
+//Запрос логина/пароля
+message LoginRequest{
+  string email=1;
+  string password=2;
+}
+
+//Определяем какое сообщение отдать при аутентификации
+message LoginResponse{
+  string token=1;
+  string message=2;
+}
+
